@@ -1,0 +1,1 @@
+// Funciones mock (fetchTrades y createTrade) con localStorage y safeParse

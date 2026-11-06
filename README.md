@@ -1,16 +1,32 @@
-# React + Vite
+src/
+├── api/
+│   └── tradesApi.js         # Funciones mock (fetchTrades y createTrade) con localStorage y safeParse
+├── components/
+│   ├── TradeForm.jsx        # Formulario con React Hook Form, Zod y errores accesibles (20 + 15 pts)
+│   ├── TradeList.jsx        # Listado que consume TanStack Query con estados de carga/error/éxito (15 + 10 pts)
+│   └── BonusTrigger.jsx     # Botón interactivo opcional para demostrar el BONUS (safeParse con datos corruptos)
+├── hooks/
+│   ├── useTrades.js         # Custom Hook con useQuery para listar operaciones
+│   └── useCreateTrade.js    # Custom Hook con useMutation e invalidación automática de caché
+├── schemas/
+│   ├── tradeSchema.js       # Esquema Zod del formulario con refinamientos lógicos
+│   └── apiResponseSchema.js # Esquema Zod de la respuesta de red para el BONUS[cite: 1]
+├── App.jsx                  # Componente principal que une el formulario y el listado
+├── App.css                  # Estilos limpios y personalizados (sin Tailwind)
+├── main.jsx                 # Punto de entrada con la configuración del QueryClientProvider
+└── index.css                # Reseteo de estilos globales
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+src/schemas/tradeSchema.js: Contiene las reglas de validación con Zod y los .refine() para comprobar lógicas complejas (como el Stop Loss o Take Profit en función de si es una compra o venta)[cite: 1].
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+src/schemas/apiResponseSchema.js: Define el esquema que valida la API y hace posible el punto Bonus utilizando safeParse[cite: 1].
 
-## React Compiler
+src/api/tradesApi.js: Simula las peticiones HTTP con promesas, lee y escribe en el localStorage, y valida la respuesta antes de devolverla[cite: 1].
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+src/hooks/: Separa la lógica de obtención de datos (useQuery) y envío (useMutation) para mantener los componentes visuales limpios[cite: 1].
 
-## Expanding the ESLint configuration
+src/components/:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+TradeForm.jsx gestiona los inputs no controlados de React Hook Form conectados mediante zodResolver[cite: 1].
+
+TradeList.jsx maneja visualmente los estados de carga (isPending), error (isError) y éxito de los datos[cite: 1].

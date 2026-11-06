@@ -1,0 +1,1 @@
+// Esquema Zod de la respuesta de red para el BONUS

@@ -1,0 +1,1 @@
+// Listado que consume TanStack Query con estados de carga/error/éxito (15 + 10 pts)
