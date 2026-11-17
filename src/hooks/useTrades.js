@@ -1,1 +1,0 @@
-// Custom Hook con useQuery para listar operaciones

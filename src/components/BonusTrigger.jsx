@@ -1,1 +1,0 @@
-// Botón interactivo opcional para demostrar el BONUS (safeParse con datos corruptos)
