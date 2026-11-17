@@ -1,0 +1,28 @@
+{
+  "libros": [
+    {
+      "id": "1",
+      "titulo": "Cien años de soledad",
+      "autor": "Gabriel García Márquez",
+      "isbn": "9788437604947",
+      "puntuacion": 5,
+      "reseña": "Una obra maestra absoluta de la literatura latinoamericana y del realismo mágico."
+    },
+    {
+      "id": "2",
+      "titulo": "1984",
+      "autor": "George Orwell",
+      "isbn": "9788499890944",
+      "puntuacion": 4,
+      "reseña": "Una novela distópica visionaria sobre el control y la vigilancia estatal."
+    },
+    {
+      "id": "corrupto-1",
+      "titulo": "Libro Defectuoso",
+      "autor": "Autor Anónimo",
+      "isbn": "123", 
+      "puntuacion": 10, 
+      "reseña": "Corto" 
+    }
+  ]
+}
