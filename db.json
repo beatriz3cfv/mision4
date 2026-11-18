@@ -15,14 +15,6 @@
       "isbn": "9788499890944",
       "puntuacion": 4,
       "reseña": "Una novela distópica visionaria sobre el control y la vigilancia estatal."
-    },
-    {
-      "id": "corrupto-1",
-      "titulo": "Libro Defectuoso",
-      "autor": "Autor Anónimo",
-      "isbn": "123", 
-      "puntuacion": 10, 
-      "reseña": "Corto" 
     }
   ]
 }

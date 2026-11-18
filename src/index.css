@@ -1,1 +1,11 @@
 /* Reseteo de estilos globales */
+/* Reseteo de estilos globales */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #f4f5f7;
+  color: #1f2430;
+  line-height: 1.5;
+}

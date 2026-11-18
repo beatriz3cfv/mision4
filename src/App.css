@@ -1,0 +1,50 @@
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+form, .app > div {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 { margin-top: 0; }
+
+.campo { margin-bottom: 1rem; display: flex; flex-direction: column; }
+label { font-weight: 600; margin-bottom: 0.25rem; }
+
+input, textarea {
+  font: inherit;
+  padding: 0.5rem;
+  border: 1px solid #c4c9d4;
+  border-radius: 6px;
+}
+input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: #d93025; }
+
+.error { color: #d93025; font-size: 0.875rem; margin: 0.25rem 0 0; }
+
+button {
+  font: inherit;
+  padding: 0.5rem 1.25rem;
+  border: 0;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.status { padding: 0.5rem 0.75rem; border-radius: 6px; margin: 0.75rem 0 0; }
+.status-cargando { background: #e8eefc; color: #1e40af; }
+.status-error { background: #fdecea; color: #b3261e; }
+.status-exito { background: #e6f4ea; color: #1e7b34; }
+
+ul { list-style: none; padding: 0; margin: 0; }
+li { padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; }
+li:last-child { border-bottom: 0; }
+li p { margin: 0.25rem 0 0; }
+li span { color: #555; font-size: 0.875rem; }
