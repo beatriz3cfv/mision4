@@ -3,7 +3,7 @@ import { esquemaBase } from '../schemas/BookSchema';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
-// Esquema con el que busca en la db (formulario + id)
+// Esquema con el que se valida en la db (formulario + id)
 const esquemaServidor = esquemaBase.extend({
     id: z.union([z.string(), z.number()]),
 })
@@ -25,7 +25,7 @@ export async function obtenerLibros() {
         if (resultado.success) {
             librosValidos.push(resultado.data);
         } else {
-            console.warn(`[BONUS ZOD - DATA CORRUPTA] El servidor devolvió un libro inválido (ID: ${libro.id}):`, resultado.error.format());
+            console.warn(`[BONUS] El servidor devolvió un libro inválido (ID: ${libro.id}):`, resultado.error.format());
         }
     }
 
@@ -34,7 +34,7 @@ export async function obtenerLibros() {
 
 // POST
 export async function crearLibro(nuevo) {
-    const respuesta = await fetch(`${API_URL}/api`, {
+    const respuesta = await fetch(`${API_URL}/libros`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(nuevo),
@@ -44,5 +44,5 @@ export async function crearLibro(nuevo) {
         throw new Error(`Error HTTP: ${respuesta.status}`);
     }
 
-    return respuesta.json;
+    return respuesta.json();
 }

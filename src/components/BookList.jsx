@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { obtenerLibros } from "../api/api";
+import { Status } from "./Status";
 
 export function BookList() {
     const { data: libros, isPending, isError, error } = useQuery({
@@ -8,11 +9,11 @@ export function BookList() {
     });
 
     if (isPending) {
-        return <p role="status">Cargando libros...</p>;
+        return <Status tipo="cargando">Cargando libros...</Status>;
     }
 
     if (isError) {
-        return <p role="status">Error al cargar los libros: {error.message}</p>;
+        return <Status tipo="error">Error al cargar los libros: {error.message}</Status>;
     }
 
     return (

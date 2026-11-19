@@ -16,38 +16,38 @@ export function BookForm() {
     });
     const onSubmit = datos => { mutacion.mutate(datos) };  // POST a la API
 
-return (
+    return (
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <h2>Añadir libro</h2>
 
             <div className="campo">
                 <label htmlFor="titulo">Título</label>
-                <input id="titulo" aria-invalid={!!errors.titulo} {...register("titulo")} />
-                {errors.titulo && <p className="error" role="alert">{errors.titulo.message}</p>}
+                <input id="titulo" aria-invalid={!!errors.titulo} aria-describedby={errors.titulo ? "titulo-error" : undefined} {...register("titulo")} />
+                {errors.titulo && <p id="titulo-error" className="error" role="alert">{errors.titulo.message}</p>}
             </div>
 
             <div className="campo">
                 <label htmlFor="autor">Autor</label>
-                <input id="autor" aria-invalid={!!errors.autor} {...register("autor")} />
-                {errors.autor && <p className="error" role="alert">{errors.autor.message}</p>}
+                <input id="autor" aria-invalid={!!errors.autor} aria-describedby={errors.autor ? "autor-error" : undefined} {...register("autor")} />
+                {errors.autor && <p id="autor-error" className="error" role="alert">{errors.autor.message}</p>}
             </div>
 
             <div className="campo">
                 <label htmlFor="isbn">ISBN</label>
-                <input id="isbn" aria-invalid={!!errors.isbn} {...register("isbn")} />
-                {errors.isbn && <p className="error" role="alert">{errors.isbn.message}</p>}
+                <input id="isbn" aria-invalid={!!errors.isbn} aria-describedby={errors.isbn ? "isbn-error" : undefined} {...register("isbn")} />
+                {errors.isbn && <p id="isbn-error" className="error" role="alert">{errors.isbn.message}</p>}
             </div>
 
             <div className="campo">
                 <label htmlFor="puntuacion">Puntuación (1-5)</label>
-                <input id="puntuacion" type="number" aria-invalid={!!errors.puntuacion} {...register("puntuacion")} />
-                {errors.puntuacion && <p className="error" role="alert">{errors.puntuacion.message}</p>}
+                <input id="puntuacion" type="number" aria-invalid={!!errors.puntuacion} aria-describedby={errors.puntuacion ? "puntuacion-error" : undefined} {...register("puntuacion")} />
+                {errors.puntuacion && <p id="puntuacion-error" className="error" role="alert">{errors.puntuacion.message}</p>}
             </div>
 
             <div className="campo">
                 <label htmlFor="reseña">Reseña</label>
-                <textarea id="reseña" rows={4} aria-invalid={!!errors.reseña} {...register("reseña")} />
-                {errors.reseña && <p className="error" role="alert">{errors.reseña.message}</p>}
+                <textarea id="reseña" rows={4} aria-invalid={!!errors.reseña} aria-describedby={errors.reseña ? "reseña-error" : undefined} {...register("reseña")} />
+                {errors.reseña && <p id="reseña-error" className="error" role="alert">{errors.reseña.message}</p>}
             </div>
 
             <button type="submit" disabled={mutacion.isPending}>
